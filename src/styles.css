@@ -1,0 +1,118 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* HS Gift Shop — Warm Cream + Burgundy + Gold */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-cream: var(--cream);
+  --color-burgundy: var(--primary);
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: 0 4px 24px -8px color-mix(in oklab, var(--primary) 18%, transparent);
+  --shadow-elegant: 0 20px 40px -20px color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.965 0.018 85);          /* warm cream */
+  --foreground: oklch(0.22 0.01 60);            /* dark charcoal */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.01 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.01 60);
+  --primary: oklch(0.36 0.11 20);               /* deep burgundy */
+  --primary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.93 0.02 80);
+  --secondary-foreground: oklch(0.22 0.01 60);
+  --muted: oklch(0.94 0.015 80);
+  --muted-foreground: oklch(0.48 0.02 60);
+  --accent: oklch(0.9 0.04 80);
+  --accent-foreground: oklch(0.36 0.11 20);
+  --gold: oklch(0.74 0.12 80);                  /* muted gold */
+  --gold-foreground: oklch(0.22 0.01 60);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.88 0.02 80);
+  --ring: oklch(0.36 0.11 20);
+  --cream: oklch(0.965 0.018 85);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02","cv03","cv04","cv11";
+  }
+  h1, h2, h3, h4 { font-family: var(--font-serif); letter-spacing: -0.01em; }
+}
+
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease;
+  box-shadow: var(--shadow-soft);
+  &:hover { background-color: color-mix(in oklab, var(--color-primary) 88%, black); transform: translateY(-1px); }
+}
+@utility btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-gold-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: transform .15s ease, background-color .2s ease;
+  &:hover { background-color: color-mix(in oklab, var(--color-gold) 88%, black); transform: translateY(-1px); }
+}
+@utility btn-outline {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  background-color: transparent;
+  transition: background-color .2s ease, color .2s ease;
+  &:hover { background-color: var(--color-primary); color: var(--color-primary-foreground); }
+}
+@utility card-elegant {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: transform .2s ease, box-shadow .3s ease;
+  &:hover { transform: translateY(-2px); box-shadow: var(--shadow-elegant); }
+}

@@ -156,14 +156,14 @@ function HomePage() {
         <SectionTitle eyebrow="Follow Along" title="Stay Connected with HS Gift Shop" />
         <div className="grid md:grid-cols-3 gap-6 mt-8">
           {[
-            { name: "Instagram", url: settings.instagram_url, Icon: Instagram },
-            { name: "Facebook", url: settings.facebook_url, Icon: Facebook },
-            { name: "TikTok", url: settings.tiktok_url, Icon: null },
+            { name: "Instagram", url: settings.instagram_url, handle: settings.instagram_handle ?? "@hsgiftshop", Icon: Instagram },
+            { name: "Facebook", url: settings.facebook_url, handle: settings.facebook_handle ?? "HS Gift Shop", Icon: Facebook },
+            { name: "TikTok", url: settings.tiktok_url, handle: settings.tiktok_handle ?? "@hsgiftshop", Icon: null },
           ].map((s) => (
             <a key={s.name} href={s.url ?? "#"} target="_blank" rel="noreferrer" className="card-elegant p-8 text-center block">
               {s.Icon ? <s.Icon className="w-8 h-8 mx-auto text-primary" /> : <span className="text-2xl font-bold text-primary">TT</span>}
               <p className="mt-3 font-serif text-lg">{s.name}</p>
-              <p className="text-xs text-muted-foreground mt-1">@hsgiftshop</p>
+              <p className="text-xs text-muted-foreground mt-1">{s.handle}</p>
             </a>
           ))}
         </div>

@@ -111,11 +111,33 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { useQuery } from "@tanstack/react-query";
+import { settingsQuery } from "../lib/queries";
+
+function FaviconUpdater() {
+  const { data: settings } = useQuery(settingsQuery);
+
+  useEffect(() => {
+    if (settings?.favicon_url) {
+      const links = document.querySelectorAll("link[rel*='icon']");
+      links.forEach(el => el.parentNode?.removeChild(el));
+
+      const link = document.createElement('link');
+      link.rel = 'icon';
+      link.href = settings.favicon_url;
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  }, [settings?.favicon_url]);
+
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <FaviconUpdater />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

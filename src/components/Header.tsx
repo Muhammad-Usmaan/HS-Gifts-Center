@@ -28,7 +28,6 @@ export function Header() {
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-foreground">
           <Link to="/" className="hover:text-primary transition-colors" activeOptions={{ exact: true }} activeProps={{ className: "text-primary" }}>Home</Link>
           <Link to="/shop" className="hover:text-primary transition-colors" activeProps={{ className: "text-primary" }}>Shop</Link>
-          <Link to="/shop" search={{ }} className="hover:text-primary transition-colors">Categories</Link>
           <Link to="/category/$slug" params={{ slug: "customized-gifts" }} className="hover:text-primary transition-colors">Customized Gifts</Link>
           <Link to="/about" className="hover:text-primary transition-colors" activeProps={{ className: "text-primary" }}>About Us</Link>
           <Link to="/contact" className="hover:text-primary transition-colors" activeProps={{ className: "text-primary" }}>Contact</Link>

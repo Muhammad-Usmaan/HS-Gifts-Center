@@ -114,8 +114,8 @@ function Contact() {
             </div>
             <div className="p-6 bg-card border border-border rounded-lg">
               <h3 className="font-serif text-lg">Business Hours</h3>
-              <p className="text-sm text-muted-foreground mt-2">Mon – Sat: 10:00 AM – 8:00 PM</p>
-              <p className="text-sm text-muted-foreground">Sunday: By WhatsApp appointment</p>
+              <p className="text-sm text-muted-foreground mt-2">{settings?.business_hours_weekdays ?? "Mon – Sat: 10:00 AM – 8:00 PM"}</p>
+              <p className="text-sm text-muted-foreground">{settings?.business_hours_sunday ?? "Sunday: By WhatsApp appointment"}</p>
             </div>
           </div>
         </div>
